@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ocultar y Mostrar Imagen</title>
+</head>
+<body>
+    <p>A veces tarda en aparecer, no se porque.</p>
+    <button onclick="Mostrar()">Mostrar</button>
+    
+    <div id="caja">
+
+    </div>
+    <script type="text/JavaScript">
+        
+        let mostrar = false; // variable para controlar visibilidad
+
+        function Mostrar() {
+            
+
+            if (!mostrar) {
+                document.getElementById("caja").innerHTML = "<img src='https://static.wikia.nocookie.net/memes-pedia/images/1/14/Jotchua.jpg/revision/latest?cb=20211213221015&path-prefix=es' alt='perros'>";
+                mostrar = true;
+            } else {
+                document.getElementById("caja").innerHTML = ""; 
+                mostrar = false;
+            }
+        }
+
+        
+
+    </script>
+</body>
+</html>

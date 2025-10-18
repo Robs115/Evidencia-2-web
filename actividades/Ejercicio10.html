@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Votos</title>
+</head>
+<body>
+
+    <script type="text/JavaScript">
+        bandera = 1;
+        let voto;
+        let contadorangel = 0;
+        let contadorhiram = 0;
+        let contadoromar = 0;
+        let contadornulo = 0;
+        let candidatoElegido = "";
+
+        while (bandera == 1) {
+            voto = parseInt(prompt("Introduzca voto: 1: Hiram, 2: Angel, 3: Omar"));
+            if (voto==1) {
+                contadorhiram = contadorhiram + 1;
+            } else if (voto==2) {
+                contadorangel = contadorangel + 1;
+            
+            } else if (voto==3) {
+                contadoromar = contadoromar + 1;
+            } else if(voto==0){
+                bandera = 0;
+
+            
+
+            } else {
+                contadornulo = contadornulo +1;
+            }
+                
+            
+            
+            
+        }
+        
+       let diccionario = {
+            "hiram": contadorhiram ,
+            "angel": contadorangel,
+            "omar": contadoromar,
+            "nulo":contadornulo
+        };
+
+        // Encontrar el valor máximo
+        let maxValor = Math.max(diccionario.hiram,diccionario.angel, diccionario.omar)
+        let ganadores = [];
+
+        for (let i in diccionario) {
+
+            
+            if (diccionario[i] == maxValor) {
+               ganadores.push(i);
+
+            }
+
+        }
+
+        if (ganadores.length >= 2) {
+            let bandera2 = 1;
+            
+            while (bandera2 == 1) {
+                voto = parseInt(prompt("Los ganadores son: "+ ganadores + " elije alguno."));
+                // Sacar longitud del diccionario y que me ponga a los ganadores y solo pueda elegir uno
+                
+                if (voto === 1) {
+                    candidatoElegido = "hiram";
+                } else if (voto === 2) {
+                    candidatoElegido = "angel";
+                } else if (voto === 3) {
+                    candidatoElegido = "omar";
+                } else {
+                    alert("Voto inválido.");
+                }
+                
+                if (diccionario[candidatoElegido] == maxValor) {
+                    alert("tenemos ganador")
+                    diccionario[candidatoElegido]+= 1;
+                    bandera2 = 0;
+                    ganador = diccionario[candidatoElegido];
+                    ganadorName = candidatoElegido;
+                } else {
+                    alert("vuelve a votar")
+                    bandera2 = 1;
+                }
+                }
+            
+
+        } else {
+            ganador = diccionario[ganadores];
+            ganadorName = ganadores;
+        }
+        
+
+        
+       
+       document.write("El ganador es: "+ ganadorName+"<br>")
+       document.write("Total de votos: "+ (diccionario.hiram+diccionario.angel+diccionario.omar+diccionario.nulo)+ " ("+ diccionario.hiram+ " para hiram "+diccionario.angel+ " para angel "+ diccionario.omar + " para omar y "+ diccionario.nulo + " nulos). El porcentaje de aceptacion es: "+ (ganador) * 100 /(diccionario.hiram+diccionario.angel+diccionario.omar+diccionario.nulo)) 
+
+        
+    </script>
+    
+</body>
+</html>
+

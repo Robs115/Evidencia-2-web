@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambio de color</title>
+</head>
+<body>
+    <form action="">
+        <label for="txtColor">Color</label>
+        <input type="color" id="colorPicker" value="#ffffff">
+        <button type="button" onclick="cambiocolor()">Cambiar Color</button>
+
+    </form>
+    
+
+
+    <script type="text/JavaScript">
+        function cambiocolor() {
+            let color = document.getElementById("colorPicker").value;
+
+            document.body.style.background=color;
+            
+        }
+
+        
+
+    </script>
+</body>
+</html>
