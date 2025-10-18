@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla de Registros</title>
+</head>
+<body>
+    <main class="container border p-4 my-5 rounded">
+        <h1>Simulación de Tabla de Empleados</h1>
+        <form action="" autocomplete="off">
+            <section class="row">
+                <div class="col-4">
+                    <label for="txtRegistros">Número de registros:</label>
+                    <input id="txtRegistros" type="number" name="txtRegistros" placeholder="Ej: 5" class="form-control">
+                </div>
+
+                <div class="col-4 mt-3">
+                    <button class="btn btn-success" type="button" onclick="generarTabla()">GENERAR TABLA</button>
+                    <input type="reset" class="btn btn-danger" value="LIMPIAR" onclick="limpiarTabla()">
+                </div>
+            </section>
+
+            <section class="mt-4" id="tablaRegistros"></section>
+
+            <script type="text/javascript">
+                function generarTabla() {
+                    let numRegistros = parseInt(document.getElementById("txtRegistros").value);
+
+                    if (isNaN(numRegistros) || numRegistros <= 0) {
+                        alert("Por favor, ingrese un número positivo mayor que 0.");
+                        return;
+                    }
+
+                    let nombres = [];
+                    for (let i = 1; i <= numRegistros; i++) {
+                        let nombre = prompt("Ingrese el nombre del empleado #" + i + ":");
+                        if (!nombre || nombre.trim() === "") {
+                            alert("Nombre inválido. Intente de nuevo.");
+                            i--; 
+                        } else {
+                            nombres.push(nombre.trim());
+                        }
+                    }
+
+                  
+                    let tablaHTML = "<table border='1' cellpadding='8' cellspacing='0'>";
+                    tablaHTML += "<thead><tr><th>Id</th><th>Nombre</th><th>Acciones</th></tr></thead><tbody>";
+
+                    for (let i = 0; i < nombres.length; i++) {
+                        tablaHTML += "<tr>";
+                        tablaHTML += "<td>" + (i + 1) + "</td>";
+                        tablaHTML += "<td>" + nombres[i] + "</td>";
+                        tablaHTML += "<td>";
+                        tablaHTML += "<button onclick='editarRegistro(this)' class='btn btn-warning'>Editar</button> ";
+                        tablaHTML += "<button onclick='eliminarRegistro(this)' class='btn btn-danger'>Eliminar</button>";
+                        tablaHTML += "</td></tr>";
+                    }
+
+                    tablaHTML += "</tbody></table>";
+
+                    document.getElementById("tablaRegistros").innerHTML = tablaHTML;
+                }
+
+                function editarRegistro(boton) {
+                    let fila = boton.parentNode.parentNode;
+                    let nombreActual = fila.cells[1].innerText;
+                    let nuevoNombre = prompt("Editar nombre:", nombreActual);
+                    if (nuevoNombre && nuevoNombre.trim() !== "") {
+                        fila.cells[1].innerText = nuevoNombre.trim();
+                    }
+                }
+
+                function eliminarRegistro(boton) {
+                    let fila = boton.parentNode.parentNode;
+                    fila.remove();
+                }
+
+                function limpiarTabla() {
+                    document.getElementById("tablaRegistros").innerHTML = "";
+                }
+            </script>
+        </form>
+    </main>
+</body>
+</html>
