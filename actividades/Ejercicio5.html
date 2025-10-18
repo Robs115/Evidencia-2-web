@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tabla de Registros</title>
-</head> 
+    <title>Ejercicio 4 - Tabla de Registros (corregido)</title>
+</head>
 <body>
     <main class="container border p-4 my-5 rounded">
         <h1>Simulación de Tabla de Empleados</h1>
-        <form action="" autocomplete="off">
+        <form action="" autocomplete="off" onsubmit="return false;">
             <section class="row">
                 <div class="col-4">
                     <label for="txtRegistros">Número de registros:</label>
@@ -32,6 +32,7 @@
                         return;
                     }
 
+
                     let nombres = [];
                     for (let i = 1; i <= numRegistros; i++) {
                         let nombre = prompt("Ingrese el nombre del empleado #" + i + ":");
@@ -43,27 +44,64 @@
                         }
                     }
 
-                  
-                    let tablaHTML = "<table border='1' cellpadding='8' cellspacing='0'>";
-                    tablaHTML += "<thead><tr><th>Id</th><th>Nombre</th><th>Acciones</th></tr></thead><tbody>";
+                    let tabla = document.createElement("table");
+                    tabla.border = "1";
+                    tabla.cellPadding = "8";
+                    tabla.cellSpacing = "0";
+                    tabla.style.borderCollapse = "collapse";
 
-                    for (let i = 0; i < nombres.length; i++) {
-                        tablaHTML += "<tr>";
-                        tablaHTML += "<td>" + (i + 1) + "</td>";
-                        tablaHTML += "<td>" + nombres[i] + "</td>";
-                        tablaHTML += "<td>";
-                        tablaHTML += "<button onclick='editarRegistro(this)' class='btn btn-warning'>Editar</button> ";
-                        tablaHTML += "<button onclick='eliminarRegistro(this)' class='btn btn-danger'>Eliminar</button>";
-                        tablaHTML += "</td></tr>";
-                    }
+                    let thead = document.createElement("thead");
+                    thead.innerHTML = "<tr><th>Id</th><th>Nombre</th><th>Acciones</th></tr>";
+                    tabla.appendChild(thead);
 
-                    tablaHTML += "</tbody></table>";
+                    let tbody = document.createElement("tbody");
 
-                    document.getElementById("tablaRegistros").innerHTML = tablaHTML;
+                    nombres.forEach((nombre, index) => {
+                        let fila = document.createElement("tr");
+
+                        let tdId = document.createElement("td");
+                        tdId.textContent = index + 1;
+                        fila.appendChild(tdId);
+
+                        let tdNombre = document.createElement("td");
+                        tdNombre.textContent = nombre;
+                        fila.appendChild(tdNombre);
+
+                        let tdAcciones = document.createElement("td");
+
+                        let btnEditar = document.createElement("button");
+                        btnEditar.type = "button";
+                        btnEditar.textContent = "Editar";
+                        btnEditar.className = "btn btn-warning";
+                        btnEditar.onclick = function() {
+                            editarRegistro(this);
+                        };
+
+                        let btnEliminar = document.createElement("button");
+                        btnEliminar.type = "button";
+                        btnEliminar.textContent = "Eliminar";
+                        btnEliminar.className = "btn btn-danger";
+                        btnEliminar.style.marginLeft = "5px";
+                        btnEliminar.onclick = function() {
+                            eliminarRegistro(this);
+                        };
+
+                        tdAcciones.appendChild(btnEditar);
+                        tdAcciones.appendChild(btnEliminar);
+                        fila.appendChild(tdAcciones);
+
+                        tbody.appendChild(fila);
+                    });
+
+                    tabla.appendChild(tbody);
+
+                    let contenedor = document.getElementById("tablaRegistros");
+                    contenedor.innerHTML = ""; 
+                    contenedor.appendChild(tabla);
                 }
 
                 function editarRegistro(boton) {
-                    let fila = boton.parentNode.parentNode;
+                    let fila = boton.closest("tr");
                     let nombreActual = fila.cells[1].innerText;
                     let nuevoNombre = prompt("Editar nombre:", nombreActual);
                     if (nuevoNombre && nuevoNombre.trim() !== "") {
@@ -72,15 +110,26 @@
                 }
 
                 function eliminarRegistro(boton) {
-                    let fila = boton.parentNode.parentNode;
+                    let fila = boton.closest("tr");
                     fila.remove();
+                    actualizarIds();
                 }
 
                 function limpiarTabla() {
                     document.getElementById("tablaRegistros").innerHTML = "";
+                }
+
+                function actualizarIds() {
+                    const tabla = document.querySelector("#tablaRegistros table");
+                    if (!tabla) return;
+                    const filas = tabla.querySelectorAll("tbody tr");
+                    filas.forEach((fila, i) => {
+                        fila.cells[0].textContent = i + 1;
+                    });
                 }
             </script>
         </form>
     </main>
 </body>
 </html>
+
