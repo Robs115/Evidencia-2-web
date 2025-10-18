@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triangulos</title>
+</head>
+<body>
+    <main class="container border p-4 my-5 rounded">
+        <h1>Tipo de triángulo según sus lados</h1>
+        <form action="" autocomplete="off" novalidate onreset="document.getElementById('resultado').textContent = '';">
+            <section class="row">
+                <div class="col-4">
+                    <label for="lado1">Lado 1:</label>
+                    <input id="lado1" type="number" step="any" name="lado1" placeholder="Ej: 5.2" class="form-control">
+                </div>
+
+                <div class="col-4">
+                    <label for="lado2">Lado 2:</label>
+                    <input id="lado2" type="number" step="any" name="lado2" placeholder="Ej: 5.2" class="form-control">
+                </div>
+
+                <div class="col-4">
+                    <label for="lado3">Lado 3:</label>
+                    <input id="lado3" type="number" step="any" name="lado3" placeholder="Ej: 5.2" class="form-control">
+                </div>
+
+                <div class="col-4 mt-3">
+                    <button class="btn btn-success" type="button" onclick="determinarTriangulo()">DETERMINAR</button>
+                    <input type="reset" class="btn btn-danger" value="LIMPIAR">
+                </div>
+            </section>
+
+            <div id="resultado" class="mt-3" role="status" aria-live="polite"></div>
+
+            <script type="text/javascript">
+                function determinarTriangulo() {
+                    let lado1 = parseFloat(document.getElementById("lado1").value);
+                    let lado2 = parseFloat(document.getElementById("lado2").value);
+                    let lado3 = parseFloat(document.getElementById("lado3").value);
+                    const out = document.getElementById("resultado");
+                    out.textContent = "";
+
+                    if (isNaN(lado1) || isNaN(lado2) || isNaN(lado3)) {
+                        out.textContent = "Por favor ingrese los tres lados del triángulo.";
+                        return;
+                    }
+
+                    if (lado1 <= 0 || lado2 <= 0 || lado3 <= 0) {
+                        out.textContent = "Los lados deben ser mayores que cero.";
+                        return;
+                    }
+
+                    const EPS = 1e-9;
+
+                    if ((lado1 + lado2) <= lado3 + EPS || (lado1 + lado3) <= lado2 + EPS || (lado2 + lado3) <= lado1 + EPS) {
+                        out.textContent = "Los valores ingresados no forman un triángulo válido.";
+                        return;
+                    }
+
+                    function eq(a, b) {
+                        return Math.abs(a - b) <= EPS;
+                    }
+
+                    if (eq(lado1, lado2) && eq(lado2, lado3)) {
+                        out.textContent = "El triángulo es EQUILÁTERO (todos los lados son iguales).";
+                    } 
+                    else if (eq(lado1, lado2) || eq(lado1, lado3) || eq(lado2, lado3)) {
+                        out.textContent = "El triángulo es ISÓSCELES (dos lados son iguales).";
+                    } 
+                    else {
+                        out.textContent = "El triángulo es ESCALENO (todos los lados son diferentes).";
+                    }
+                    alert("el triángulo es " + out.textContent);
+                }
+            </script>
+        </form>
+    </main>
+</body>
+</html>
