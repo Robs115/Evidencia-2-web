@@ -1,0 +1,24 @@
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(270deg, #00bcd4, #3f51b5, #9c27b0); /* 270deg indica que el degradado lineal se aplicara de derecha a izquierda */
+  background-size: 600% 600%;
+  animation: Fondo 4s ease infinite; /* infinite hace que la animacion se reproduzca infinitamente */
+}
+
+@keyframes Fondo {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
