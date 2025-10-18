@@ -1,0 +1,48 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #111;
+  color: white;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+/* Fondo */
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes girar {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Círculo animado */
+.spinner {
+  border: 8px solid #ccc;
+  border-top: 8px solid #00bcd4;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  animation: girar 1s linear infinite; /* Aplica la animacion de 'girar' haciendo que rote el loader */
+}
+
+
+
+/* Contenido que aparece después del loader*/
+#contenido {
+  display: none;
+  padding: 40px;
+}
