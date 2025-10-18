@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratorio de Funciones Predeterminadas</title>
+</head>
+<body>
+    <main class="container border p-4 my-5 rounded">
+        <h1>Laboratorio de Funciones Predeterminadas en JavaScript</h1>
+
+        <section id="resultados"></section>
+
+        <script type="text/javascript">
+            function mostrar(titulo, definicion, ejemplo, resultado) {
+                document.getElementById("resultados").innerHTML += `
+                    <div style="margin-bottom: 20px; border: 1px solid #ccc; padding: 10px; border-radius: 8px;">
+                        <h3>${titulo}</h3>
+                        <p><strong>Definición:</strong> ${definicion}</p>
+                        <p><strong>Ejemplo:</strong> ${ejemplo}</p>
+                        <p><strong>Resultado:</strong> ${resultado}</p>
+                    </div>
+                `;
+            }
+
+            let numAbs = -8;
+            mostrar(
+                "Math.abs()",
+                "Devuelve el valor absoluto de un número (sin signo negativo).",
+                "Math.abs(" + numAbs + ")",
+                Math.abs(numAbs)
+            );
+
+            let numCeil = 4.2;
+            mostrar(
+                "Math.ceil()",
+                "Redondea un número decimal al entero superior más cercano.",
+                "Math.ceil(" + numCeil + ")",
+                Math.ceil(numCeil)
+            );
+
+            let random = Math.random();
+            mostrar(
+                "Math.random()",
+                "Genera un número aleatorio entre 0 (incluido) y 1 (excluido).",
+                "Math.random()",
+                random
+            );
+
+            let valores = [5, 12, 3, 9];
+            mostrar(
+                "Math.max() y Math.min()",
+                "Devuelven el valor máximo y mínimo de una lista de números.",
+                "Math.max(5, 12, 3, 9) / Math.min(5, 12, 3, 9)",
+                "Máx: " + Math.max(...valores) + " | Mín: " + Math.min(...valores)
+            );
+
+            let valorNaN = "Hola" / 5;
+            mostrar(
+                "Number.isNaN()",
+                "Verifica si el valor evaluado es NaN (Not a Number).",
+                "Number.isNaN('Hola' / 5)",
+                Number.isNaN(valorNaN)
+            );
+
+            let numFixed = 12.34567;
+            mostrar(
+                "toFixed()",
+                "Formatea un número con la cantidad de decimales especificada.",
+                numFixed + ".toFixed(2)",
+                numFixed.toFixed(2)
+            );
+
+            let fecha = new Date();
+            mostrar(
+                "Date()",
+                "Obtiene la fecha y hora actual del sistema.",
+                "new Date()",
+                fecha
+            );
+
+            let texto = "JavaScript";
+            mostrar(
+                "String.length",
+                "Devuelve el número de caracteres que tiene una cadena.",
+                `"${texto}".length`,
+                texto.length
+            );
+
+            mostrar(
+                "String.toUpperCase() y String.toLowerCase()",
+                "Convierte una cadena a mayúsculas o minúsculas.",
+                `"${texto}".toUpperCase() / "${texto}".toLowerCase()`,
+                "Mayúsculas: " + texto.toUpperCase() + " | Minúsculas: " + texto.toLowerCase()
+            );
+
+            let numFloor = 7.8;
+            mostrar(
+                "Math.floor()",
+                "Devuelve el valor entero inferior de un número decimal.",
+                "Math.floor(" + numFloor + ")",
+                Math.floor(numFloor)
+            );
+        </script>
+    </main>
+</body>
+</html>
