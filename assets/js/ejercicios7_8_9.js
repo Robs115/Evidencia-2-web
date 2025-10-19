@@ -43,15 +43,24 @@ function Ejercicio7(){
 function Ejercicio8() {
     //Se obtiene el valor original y se crea variable para almacenar elementos del numero decimal.
     let numeroDeci = parseInt(document.getElementById("txtNumDeci").value);
-    let numeroBina = "";
 
-    //Se convierte manualmente, se añaden los elementos al Binario mientras que se divide constantemente el numero original hasta que termine en 0.
-    while (numeroDeci != 0){
-        numeroBina = (numeroDeci % 2) + numeroBina;
-        numeroDeci = Math.floor(numeroDeci / 2);
+    if (!isNaN(numeroDeci)) {
+
+        let numeroBina = "";
+
+        //Se convierte manualmente, se añaden los elementos al Binario mientras que se divide constantemente el numero original hasta que termine en 0.
+        while (numeroDeci != 0){
+            numeroBina = (numeroDeci % 2) + numeroBina;
+            numeroDeci = Math.floor(numeroDeci / 2);
+        }
+        //Se inserta el numero Binario terminado en el elemento correspondiente de la pagina.
+        document.getElementById("txtNumBina").value = numeroBina;
+
     }
-    //Se inserta el numero Binario terminado en el elemento correspondiente de la pagina.
-    document.getElementById("txtNumBina").value = numeroBina;
+
+    else {
+        alert("[Numero Invalido]");
+    }
 }
 
 //Ejercicio 9
