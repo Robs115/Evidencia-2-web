@@ -1,1 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Introducción a JavaScript</title>
+  <!-- Enlace a Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Fuente personalizada -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Estilos personalizados -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <!-- ====== ENCABEZADO ====== -->
+  <header class="bg-warning text-dark text-center py-4">
+    <div class="container">
+      <h1 class="fw-bold">Lenguaje de Programación JavaScript</h1>
+      <p class="lead">El motor que da vida a la web moderna</p>
+    </div>
+  </header>
+
+  <!-- ====== BARRA DE NAVEGACIÓN ====== -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="#"><img src="assets/img/JavaScript-logo.png" width="40" height="40" alt="Logo de JavaScript"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div id="navbarNav" class="collapse navbar-collapse justify-content-center">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="#introduccion">Introducción</a></li>
+          <li class="nav-item"><a class="nav-link" href="#caracteristicas">Características</a></li>
+          <li class="nav-item"><a class="nav-link" href="#elementos">Elementos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#aplicaciones">Aplicaciones</a></li>
+          <li class="nav-item"><a class="nav-link" href="#recursos">Recursos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#ejercicios">Ejercicios</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ====== INTRODUCCIÓN ====== -->
+  <section id="introduccion" class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-4">Introducción a JavaScript</h2>
+      <p class="text-center">
+        JavaScript es un lenguaje de programación interpretado, orientado a objetos y dinámico,
+        diseñado originalmente para hacer que las páginas web sean interactivas.
+        Actualmente es una de las tecnologías fundamentales del desarrollo web, junto con HTML y CSS.
+      </p>
+      <div class="text-center">
+        <img src="assets/img/js-java-script.gif" 
+             class="img-fluid my-3 rounded-3" alt="Logo de JavaScript" width="150">
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== CARACTERÍSTICAS ====== -->
+  <section id="caracteristicas" class="bg-light py-5">
+    <div class="container">
+      <h2 class="text-center mb-4">Características Principales</h2>
+      <div class="row">
+        <div class="col-md-6">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Lenguaje interpretado y de alto nivel</li>
+            <li class="list-group-item">Basado en prototipos y orientado a objetos</li>
+            <li class="list-group-item">Multiplataforma y compatible con todos los navegadores modernos</li>
+            <li class="list-group-item">Soporte para programación asíncrona (Promises, async/await)</li>
+            <li class="list-group-item">Ampliamente usado en frontend, backend y móvil</li>
+          </ul>
+        </div>
+        <div class="col-md-6 text-center">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/lGbXi1OFP_E?si=0Bi33UA11RgS8vg7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== ELEMENTOS FUNDAMENTALES ====== -->
+  <section id="elementos" class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-4">Elementos Fundamentales</h2>
+      <p>Los elementos básicos que todo programador debe conocer en JavaScript incluyen:</p>
+      <ol>
+        <li><strong>Variables:</strong> se definen con <code>let</code>, <code>const</code> o <code>var</code>.</li>
+        <li><strong>Tipos de datos:</strong> números, cadenas, booleanos, objetos, arrays y funciones.</li>
+        <li><strong>Funciones:</strong> bloques reutilizables de código.</li>
+        <li><strong>Condicionales:</strong> estructuras como <code>if</code>, <code>else</code> o <code>switch</code>.</li>
+        <li><strong>Bucles:</strong> permiten repetir acciones (<code>for</code>, <code>while</code>).</li>
+      </ol>
+      <div class="bg-dark text-success p-3 rounded mt-3">
+        <pre><code>// Ejemplo simple en JavaScript
+let saludo = "Hola Mundo";
+console.log(saludo);
+        </code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== APLICACIONES ====== -->
+  <section id="aplicaciones" class="bg-light py-5">
+    <div class="container">
+      <h2 class="text-center mb-4">Principales Aplicaciones</h2>
+      <ul class="list-group">
+        <li class="list-group-item"><strong>Desarrollo Web:</strong> interacción dinámica en páginas (DOM, animaciones, formularios).</li>
+        <li class="list-group-item"><strong>Backend:</strong> mediante entornos como Node.js.</li>
+        <li class="list-group-item"><strong>Aplicaciones móviles:</strong> con frameworks como React Native o Ionic.</li>
+        <li class="list-group-item"><strong>Videojuegos:</strong> usando motores como Phaser o Three.js.</li>
+        <li class="list-group-item"><strong>Machine Learning:</strong> con librerías como TensorFlow.js.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ====== RECURSOS EXTERNOS ====== -->
+  <section id="recursos" class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-4">Recursos Externos</h2>
+      <p class="text-center">Explora más sobre JavaScript en los siguientes sitios:</p>
+      <div class="text-center">
+        <a href="https://developer.mozilla.org/es/docs/Web/JavaScript" target="_blank" class="btn btn-outline-dark m-2">MDN Web Docs</a>
+        <a href="https://www.w3schools.com/js/" target="_blank" class="btn btn-outline-dark m-2">W3Schools</a>
+        <a href="https://javascript.info/" target="_blank" class="btn btn-outline-dark m-2">JavaScript.info</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== EJERCICIOS ====== -->
+  <section id="ejercicios" class="bg-warning py-5">
+    <div class="container text-center">
+      <h2 class="mb-4 text-dark">Ejercicios Prácticos</h2>
+      <p>Accede a los ejercicios desarrollados dentro del sitio:</p>
+      <div class="d-flex flex-wrap justify-content-center gap-3 mt-3">
+        <a href="actividades/Ejercicio1.html" class="btn btn-dark">Ejercicio 1: Calculadora Basica</a>
+        <a href="actividades/Ejercicio2.html" class="btn btn-dark">Ejercicio 2: Tablas de multiplicar</a>
+        <a href="actividades/Ejercicio3.html" class="btn btn-dark">Ejercicio 3: Tipo de triangulo segun sus lados</a>
+        <a href="actividades/Ejercicio4.html" class="btn btn-dark">Ejercicio 4: Validar suma de pares e impares</a>
+        <a href="actividades/Ejercicio5.html" class="btn btn-dark">Ejercicio 5: Tabla de regitros</a>
+        <a href="actividades/Ejercicio6.html" class="btn btn-dark">Ejercicio 6: Laboratorio de funciones predeterminadas</a>
+        <a href="actividades/Ejercicio7.html" class="btn btn-dark">Ejercicio 7: Adivinar numero secreto</a>
+        <a href="actividades/Ejercicio8.html" class="btn btn-dark">Ejercicio 8: Convertidor de sistemas numéricos</a>
+        <a href="actividades/Ejercicio9.html" class="btn btn-dark">Ejercicio 9: Calculadora de promedios y calificaciones</a>
+        <a href="actividades/Ejercicio10.html" class="btn btn-dark">Ejercicio 10: Contador de votos</a>
+        <a href="actividades/Ejercicio11.html" class="btn btn-dark">Ejercicio 11: Cambio de color</a>
+        <a href="actividades/Ejercicio12.html" class="btn btn-dark">Ejercicio 12: Cambiar propiedades de textos</a>
+        <a href="actividades/Ejercicio13.html" class="btn btn-dark">Ejercicio 13: Ocultar y mostrar un elemento con un boton</a>
+        <a href="actividades/Ejercicio14.html" class="btn btn-dark">Ejercicio 14: Loader</a>        
+        <a href="actividades/Ejercicio15.html" class="btn btn-dark">Ejercicio 15: Fondo animado</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== PIE DE PÁGINA ====== -->
+  <footer class="bg-dark text-white text-center py-3">
+    <p>© 2025 Pagina Creada por el equipo 4 del grupo 51 | Desarrollado usando HTML5, CSS3 y Bootstrap 5</p>
+  </footer>
+
+  <!-- Scripts de Bootstrap -->
+
+</body>
+</html>
 
