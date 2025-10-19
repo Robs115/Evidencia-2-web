@@ -44,6 +44,8 @@ function Ejercicio8() {
     //Se obtiene el valor original y se crea variable para almacenar elementos del numero decimal.
     let numeroDeci = parseInt(document.getElementById("txtNumDeci").value);
 
+
+    //Se comprueba si quiera halla un valor en la variable:
     if (!isNaN(numeroDeci)) {
 
         let numeroBina = "";
@@ -58,6 +60,7 @@ function Ejercicio8() {
 
     }
 
+    //Si no se uso un numero, la variable sera nula y ejecutara una alerta para informar al usuario:
     else {
         alert("[Numero Invalido]");
     }
