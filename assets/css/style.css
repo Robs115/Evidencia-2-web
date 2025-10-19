@@ -1,0 +1,28 @@
+/* ====== Estilos personalizados ====== */
+body {
+  font-family: 'Inter', sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* ====== Encabezados ====== */
+h1, h2 {
+  font-weight: 700;
+}
+
+/* ====== Código de ejemplo ====== */
+pre {
+  white-space: pre-wrap;
+  font-size: 1rem;
+}
+
+/* ====== Efectos en botones ====== */
+.btn:hover {
+  transform: scale(1.05);
+  transition: 0.3s ease;
+}
+
+/* ====== Pie de página ====== */
+footer p {
+  margin: 0;
+  font-size: 0.9rem;
+}
