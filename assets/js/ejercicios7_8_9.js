@@ -7,9 +7,6 @@ function Ejercicio7(){
     let eleccion;
     let direccion;
 
-/* Esto sirve para probar el funcionamiento del programa desplegando el numero aleatorio en la consola.
-    console.log(numeroAleatorio); */
-
 // Pregunta inicial
     eleccion = prompt("¿Cual es el numero aleatorio?");
     intentos -= 1;
