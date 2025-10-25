@@ -9,7 +9,6 @@ function Ejercicio7(){
 
 // Pregunta inicial
     eleccion = prompt("¿Cual es el numero aleatorio?");
-    intentos -= 1;
 
     // Preguntas posteriores y retroalimentacion
     while (intentos > 0) {
@@ -20,14 +19,14 @@ function Ejercicio7(){
         }
         //De lo contrario, se les da una pista de si es mayor o menor que el numero aleatorio y se les resta un intento.
         else {
-            if (eleccion > numeroAleatorio){
+            intentos -= 1;
+            if (eleccion < numeroAleatorio){
                 direccion = "mayor";
             }
             else {
                 direccion = "menor";
             }
             eleccion = prompt("El número secreto es " + direccion + " al número ingresado, te quedan " + intentos + " intento(s).");
-            intentos -= 1;
         }
     }
     // Si los intentos se agotaron, se le muestra este mensaje.
